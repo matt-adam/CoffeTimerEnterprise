@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		02262702C39EF7970168D802 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57A9EF0D56AF20493049CB66 /* AssetsLibrary.framework */; };
 		5E1F8CE319839CB000A83E4F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1F8CE219839CB000A83E4F /* AppDelegate.swift */; };
 		5E1F8CE819839CB100A83E4F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E1F8CE619839CB100A83E4F /* Main.storyboard */; };
 		5E1F8CEA19839CB100A83E4F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E1F8CE919839CB100A83E4F /* Images.xcassets */; };
@@ -16,11 +17,19 @@
 		5E7062651B1B8B64008AE365 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5E7062671B1B8B64008AE365 /* InfoPlist.strings */; };
 		5E70626C1B1B9379008AE365 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5E70626E1B1B9379008AE365 /* Localizable.strings */; };
 		5E79D6421B23668700644C49 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E79D6411B23668700644C49 /* CoreDataStack.swift */; };
-		5E9B8F711BAE377900D9B6E7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E9B8F701BAE377900D9B6E7 /* LaunchScreen.storyboard */; settings = {ASSET_TAGS = (); }; };
-		5EC113BC1BAF18AA00CCE373 /* CoffeeTimer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5EC113BA1BAF18AA00CCE373 /* CoffeeTimer.xcdatamodeld */; settings = {ASSET_TAGS = (); }; };
-		5EC113BF1BAF192500CCE373 /* TimerModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC113BD1BAF192500CCE373 /* TimerModel+CoreDataProperties.swift */; settings = {ASSET_TAGS = (); }; };
-		5EC113C01BAF192500CCE373 /* TimerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC113BE1BAF192500CCE373 /* TimerModel.swift */; settings = {ASSET_TAGS = (); }; };
+		5E9B8F711BAE377900D9B6E7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E9B8F701BAE377900D9B6E7 /* LaunchScreen.storyboard */; };
+		5EC113BC1BAF18AA00CCE373 /* CoffeeTimer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5EC113BA1BAF18AA00CCE373 /* CoffeeTimer.xcdatamodeld */; };
+		5EC113BF1BAF192500CCE373 /* TimerModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC113BD1BAF192500CCE373 /* TimerModel+CoreDataProperties.swift */; };
+		5EC113C01BAF192500CCE373 /* TimerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC113BE1BAF192500CCE373 /* TimerModel.swift */; };
 		5EC4B57B1A61457600792B2B /* TimerListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC4B57A1A61457600792B2B /* TimerListTableViewController.swift */; };
+		78058C500C860A72A1D1AEFC /* BuddyBuildSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E77F561956FC2E13A76CE37C /* BuddyBuildSDK.framework */; };
+		AD3D332A67F1F100AD498249 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80ACF65B88D12C8CBD72946D /* QuartzCore.framework */; };
+		B36908DEBEEB8CF5E80CF8BC /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEF4DDE9F4C40A5EB5EEAB39 /* CoreText.framework */; };
+		E0E10A1F86F76D4E0FE8B347 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2C8DEAC6AA10C20530B8796 /* SystemConfiguration.framework */; };
+		E237D3DBF3D95CFD720EB5F9 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C93DD32F8C3776306B8E032A /* CoreVideo.framework */; };
+		E69099956F1B4B525C18306C /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38A8701835333431161A590A /* CoreMedia.framework */; };
+		F343751EEB3C9D4F7C30FF89 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7C6A1FD5151838891B401C3 /* AVFoundation.framework */; };
+		F52EF1F05D3232ADA0214622 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B443B3745C95F180F1774B1 /* CoreTelephony.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +43,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		38A8701835333431161A590A /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		57A9EF0D56AF20493049CB66 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		5E1F8CDD19839CB000A83E4F /* Coffee Timer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Coffee Timer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E1F8CE119839CB000A83E4F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5E1F8CE219839CB000A83E4F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -55,6 +66,14 @@
 		5EC113BD1BAF192500CCE373 /* TimerModel+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "TimerModel+CoreDataProperties.swift"; path = "../TimerModel+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		5EC113BE1BAF192500CCE373 /* TimerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimerModel.swift; path = ../TimerModel.swift; sourceTree = "<group>"; };
 		5EC4B57A1A61457600792B2B /* TimerListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerListTableViewController.swift; sourceTree = "<group>"; };
+		80ACF65B88D12C8CBD72946D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		9B443B3745C95F180F1774B1 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		AEF4DDE9F4C40A5EB5EEAB39 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		C7C6A1FD5151838891B401C3 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		C93DD32F8C3776306B8E032A /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		E77F561956FC2E13A76CE37C /* BuddyBuildSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BuddyBuildSDK.framework; sourceTree = "<group>"; };
+		EA9E9A37D99BC3D599B610E2 /* Bridging-Header.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
+		F2C8DEAC6AA10C20530B8796 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +81,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				78058C500C860A72A1D1AEFC /* BuddyBuildSDK.framework in Frameworks */,
+				02262702C39EF7970168D802 /* AssetsLibrary.framework in Frameworks */,
+				B36908DEBEEB8CF5E80CF8BC /* CoreText.framework in Frameworks */,
+				F52EF1F05D3232ADA0214622 /* CoreTelephony.framework in Frameworks */,
+				E0E10A1F86F76D4E0FE8B347 /* SystemConfiguration.framework in Frameworks */,
+				AD3D332A67F1F100AD498249 /* QuartzCore.framework in Frameworks */,
+				F343751EEB3C9D4F7C30FF89 /* AVFoundation.framework in Frameworks */,
+				E69099956F1B4B525C18306C /* CoreMedia.framework in Frameworks */,
+				E237D3DBF3D95CFD720EB5F9 /* CoreVideo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,12 +103,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4E502EAC85770DA800578F56 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E77F561956FC2E13A76CE37C /* BuddyBuildSDK.framework */,
+				57A9EF0D56AF20493049CB66 /* AssetsLibrary.framework */,
+				AEF4DDE9F4C40A5EB5EEAB39 /* CoreText.framework */,
+				9B443B3745C95F180F1774B1 /* CoreTelephony.framework */,
+				F2C8DEAC6AA10C20530B8796 /* SystemConfiguration.framework */,
+				80ACF65B88D12C8CBD72946D /* QuartzCore.framework */,
+				C7C6A1FD5151838891B401C3 /* AVFoundation.framework */,
+				38A8701835333431161A590A /* CoreMedia.framework */,
+				C93DD32F8C3776306B8E032A /* CoreVideo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		5E1F8CD419839CB000A83E4F = {
 			isa = PBXGroup;
 			children = (
 				5E1F8CDF19839CB000A83E4F /* Coffee Timer */,
 				5E1F8CF219839CB100A83E4F /* Coffee TimerTests */,
 				5E1F8CDE19839CB000A83E4F /* Products */,
+				4E502EAC85770DA800578F56 /* Frameworks */,
+				EA9E9A37D99BC3D599B610E2 /* Bridging-Header.h */,
 			);
 			sourceTree = "<group>";
 		};
@@ -402,11 +448,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "Coffee Timer/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ashfurrow.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -414,11 +465,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "Coffee Timer/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ashfurrow.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Bridging-Header.h";
 			};
 			name = Release;
 		};
