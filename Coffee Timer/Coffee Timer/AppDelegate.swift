@@ -9,7 +9,7 @@
 import UIKit
 
 func appDelegate() -> AppDelegate {
-    return UIApplication.sharedApplication().delegate as! AppDelegate
+    return UIApplication.shared.delegate as! AppDelegate
 }
 
 @UIApplicationMain
@@ -21,11 +21,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return CoreDataStack()
     }()
 
-    func method (arg: String!) {
+    func method (_ arg: String!) {
         print(arg)
     }
 
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         BuddyBuildSDK.setup()
         
         print("Application has launched.")
@@ -37,37 +37,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
-    func applicationWillResignActive(application: UIApplication) {
+    func applicationWillResignActive(_ application: UIApplication) {
         print("Application has resigned active.")
 
         coreDataStack.save()
     }
 
-    func applicationDidEnterBackground(application: UIApplication) {
+    func applicationDidEnterBackground(_ application: UIApplication) {
         print("Application has entered background.")
     }
 
-    func applicationWillEnterForeground(application: UIApplication) {
+    func applicationWillEnterForeground(_ application: UIApplication) {
         print("Application has entered foreground.")
     }
 
-    func applicationDidBecomeActive(application: UIApplication) {
+    func applicationDidBecomeActive(_ application: UIApplication) {
         print("Application has become active.")
     }
 
-    func applicationWillTerminate(application: UIApplication) {
+    func applicationWillTerminate(_ application: UIApplication) {
         print("Application will terminate.")
     }
 
-    func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
+    func application(_ application: UIApplication, didReceive notification: UILocalNotification) {
         print("Application received local notification.")
 
-        let alertController = UIAlertController(title: notification.alertTitle, message: notification.alertBody, preferredStyle: .Alert)
+        let alertController = UIAlertController(title: notification.alertTitle, message: notification.alertBody, preferredStyle: .alert)
 
-        let okAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
         alertController.addAction(okAction)
 
-        window!.rootViewController!.presentViewController(alertController, animated: true, completion: nil)
+        window!.rootViewController!.present(alertController, animated: true, completion: nil)
     }
 }
 

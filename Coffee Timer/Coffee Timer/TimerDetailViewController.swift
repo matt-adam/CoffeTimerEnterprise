@@ -15,15 +15,15 @@ class TimerDetailViewController: UIViewController {
 
     var timerModel: TimerModel!
 
-    weak var timer: NSTimer?
+    weak var timer: Timer?
     var notification: UILocalNotification?
     var timeRemaining: NSInteger {
         guard let fireDate = notification?.fireDate else {
             return 0
         }
 
-        let now = NSDate()
-        return NSInteger(round(fireDate.timeIntervalSinceDate(now)))
+        let now = Date()
+        return NSInteger(round(fireDate.timeIntervalSince(now)))
     }
 
     override func viewDidLoad() {
@@ -33,22 +33,22 @@ class TimerDetailViewController: UIViewController {
 
         countdownLabel.text = timerModel.durationText
 
-        timerModel.addObserver(self, forKeyPath: "duration", options: .New, context: nil)
-        timerModel.addObserver(self, forKeyPath: "name", options: .New, context: nil)
+        timerModel.addObserver(self, forKeyPath: "duration", options: .new, context: nil)
+        timerModel.addObserver(self, forKeyPath: "name", options: .new, context: nil)
     }
 
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
         // Request local notifications and set up local notification
-        let settings = UIUserNotificationSettings(forTypes: [.Alert, .Sound], categories: nil)
-        UIApplication.sharedApplication().registerUserNotificationSettings(settings)
+        let settings = UIUserNotificationSettings(types: [.alert, .sound], categories: nil)
+        UIApplication.shared.registerUserNotificationSettings(settings)
     }
 
-    @IBAction func buttonWasPressed(sender: AnyObject) {
+    @IBAction func buttonWasPressed(_ sender: AnyObject) {
         if let _ = timer {
             // Timer is running and button was pressed. Stop timer.
-            stopTimer(.Cancelled)
+            stopTimer(.cancelled)
         } else {
             // Timer is not running and button is pressed. Start timer.
             startTimer()
@@ -59,7 +59,7 @@ class TimerDetailViewController: UIViewController {
         if timeRemaining > 0 {
             updateTimer()
         } else {
-            stopTimer(.Completed)
+            stopTimer(.completed)
         }
     }
 
@@ -68,22 +68,22 @@ class TimerDetailViewController: UIViewController {
     }
 
     func startTimer() {
-        navigationItem.rightBarButtonItem?.enabled = false
+        navigationItem.rightBarButtonItem?.isEnabled = false
         navigationItem.setHidesBackButton(true, animated: true)
-        startStopButton.setTitle(NSLocalizedString("Stop", comment: "Stop button title"), forState: .Normal)
-        startStopButton.setTitleColor(.redColor(), forState: .Normal)
-        timer = NSTimer.scheduledTimerWithTimeInterval(1,
+        startStopButton.setTitle(NSLocalizedString("Stop", comment: "Stop button title"), for: UIControlState())
+        startStopButton.setTitleColor(.red, for: UIControlState())
+        timer = Timer.scheduledTimer(timeInterval: 1,
             target: self,
-            selector: "timerFired",
+            selector: #selector(TimerDetailViewController.timerFired),
             userInfo: nil,
             repeats: true)
 
         // Set up local notification
         let localNotification = UILocalNotification()
         localNotification.alertBody = NSLocalizedString("Timer Completed!", comment: "Timer completed alert body")
-        localNotification.fireDate = NSDate().dateByAddingTimeInterval(NSTimeInterval(timerModel.duration))
+        localNotification.fireDate = Date().addingTimeInterval(TimeInterval(timerModel.duration))
         localNotification.soundName = UILocalNotificationDefaultSoundName
-        UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
+        UIApplication.shared.scheduleLocalNotification(localNotification)
 
         notification = localNotification
 
@@ -91,27 +91,27 @@ class TimerDetailViewController: UIViewController {
     }
 
     enum StopTimerReason {
-        case Cancelled
-        case Completed
+        case cancelled
+        case completed
     }
 
-    func stopTimer(reason: StopTimerReason) {
-        navigationItem.rightBarButtonItem?.enabled = true
+    func stopTimer(_ reason: StopTimerReason) {
+        navigationItem.rightBarButtonItem?.isEnabled = true
         navigationItem.setHidesBackButton(false, animated: true)
         countdownLabel.text = timerModel.durationText
-        startStopButton.setTitle(NSLocalizedString("Start", comment: "Start button title"), forState: .Normal)
-        startStopButton.setTitleColor(.greenColor(), forState: .Normal)
+        startStopButton.setTitle(NSLocalizedString("Start", comment: "Start button title"), for: UIControlState())
+        startStopButton.setTitleColor(.green, for: UIControlState())
         timer?.invalidate()
 
-        if reason == .Cancelled {
-            UIApplication.sharedApplication().cancelAllLocalNotifications()
+        if reason == .cancelled {
+            UIApplication.shared.cancelAllLocalNotifications()
         }
         notification = nil
     }
 
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "editDetail" {
-            let navigationController = segue.destinationViewController as! UINavigationController
+            let navigationController = segue.destination as! UINavigationController
             let editViewController = navigationController.topViewController as! TimerEditViewController
 
             editViewController.timerModel = timerModel
@@ -123,10 +123,10 @@ class TimerDetailViewController: UIViewController {
         timerModel.removeObserver(self, forKeyPath: "name")
     }
 
-    override func observeValueForKeyPath(keyPath: String?,
-        ofObject object: AnyObject?,
-        change: [String : AnyObject]?,
-        context: UnsafeMutablePointer<Void>) {
+    override func observeValue(forKeyPath keyPath: String?,
+        of object: Any?,
+        change: [NSKeyValueChangeKey : Any]?,
+        context: UnsafeMutableRawPointer?) {
 
         if keyPath == "duration" {
             countdownLabel.text = timerModel.durationText

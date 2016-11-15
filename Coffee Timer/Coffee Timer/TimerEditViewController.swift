@@ -9,8 +9,8 @@
 import UIKit
 
 @objc protocol TimerEditViewControllerDelegate {
-    func timerEditViewControllerDidCancel(viewController: TimerEditViewController)
-    func timerEditViewControllerDidSave(viewController: TimerEditViewController)
+    func timerEditViewControllerDidCancel(_ viewController: TimerEditViewController)
+    func timerEditViewControllerDidSave(_ viewController: TimerEditViewController)
 }
 
 class TimerEditViewController: UIViewController {
@@ -36,40 +36,40 @@ class TimerEditViewController: UIViewController {
         minutesSlider.value = Float(numberOfMinutes)
         secondsSlider.value = Float(numberOfSeconds)
         switch timerModel.type {
-        case .Coffee:
+        case .coffee:
             timerTypeSegmentedControl.selectedSegmentIndex = 0
-        case .Tea:
+        case .tea:
             timerTypeSegmentedControl.selectedSegmentIndex = 1
         }
     }
 
-    @IBAction func cancelWasPressed(sender: UIBarButtonItem) {
+    @IBAction func cancelWasPressed(_ sender: UIBarButtonItem) {
         delegate?.timerEditViewControllerDidCancel(self)
-        presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
+        presentingViewController?.dismiss(animated: true, completion: nil)
     }
 
-    @IBAction func doneWasPressed(sender: UIBarButtonItem) {
+    @IBAction func doneWasPressed(_ sender: UIBarButtonItem) {
         timerModel.name = nameField.text ?? ""
         timerModel.duration = Int32(minutesSlider.value) * 60 + Int32(secondsSlider.value)
 
         if timerTypeSegmentedControl.selectedSegmentIndex == 0 {
-            timerModel.type = .Coffee
+            timerModel.type = .coffee
         } else { // Must be 1
-            timerModel.type = .Tea
+            timerModel.type = .tea
         }
 
         delegate?.timerEditViewControllerDidSave(self)
-        presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
+        presentingViewController?.dismiss(animated: true, completion: nil)
     }
 
-    @IBAction func sliderValueChanged(sender: UISlider) {
+    @IBAction func sliderValueChanged(_ sender: UISlider) {
         let numberOfMinutes = Int(minutesSlider.value)
         let numberOfSeconds = Int(secondsSlider.value)
         updateLabelsWithMinutes(numberOfMinutes, seconds: numberOfSeconds)
     }
 
-    func updateLabelsWithMinutes(minutes: Int, seconds: Int) {
-        func pluralize(value: Int, singular: String, plural: String) -> String {
+    func updateLabelsWithMinutes(_ minutes: Int, seconds: Int) {
+        func pluralize(_ value: Int, singular: String, plural: String) -> String {
             switch value {
             case 1:
                 return "1 \(singular)"
